@@ -56,7 +56,7 @@
     CGFloat size = circleSize * sqrt(2) / 2.f;
     CGFloat margin = (circleSize - size) / 2.f + self.outerRingWidth + self.outerRingSpacing;
     
-    return [UIBezierPath bezierPathWithRoundedRect:CGRectMake(margin, margin, size, size) cornerRadius:4];
+    return [UIBezierPath bezierPathWithRoundedRect:CGRectMake(margin, margin, size, size) cornerRadius:self.squareCornerRadius];
 }
 
 -(UIColor*)innerColor {

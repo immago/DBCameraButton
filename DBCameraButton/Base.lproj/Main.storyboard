@@ -172,7 +172,7 @@
                                         <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="squareCornerRadius">
-                                        <real key="value" value="5"/>
+                                        <real key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isRecording" value="NO"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
@@ -216,7 +216,7 @@ colors</string>
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="squareCornerRadius">
-                                        <real key="value" value="4"/>
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isRecording" value="YES"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
