@@ -57,8 +57,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noramal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1r-v1-MJs">
-                                <rect key="frame" x="16" y="93" width="64.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1r-v1-MJs">
+                                <rect key="frame" x="20.5" y="93" width="55.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -157,7 +157,7 @@
                                         <color key="value" red="1" green="0.0" blue="0.089263750710000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="squareColor">
-                                        <color key="value" red="1" green="0.0" blue="0.089263750710000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="1" green="0.86097935270000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="outerRingColor">
                                         <color key="value" red="0.17960379460000001" green="0.50008250759999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
