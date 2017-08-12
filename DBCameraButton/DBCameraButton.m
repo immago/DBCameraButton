@@ -45,16 +45,16 @@
 }
 
 -(UIBezierPath*)innerCirclePath {
-    CGFloat size = self.frame.size.width - self.outerRingWidth*2 - self.outerRingSpacing*2;
-    return [UIBezierPath bezierPathWithRoundedRect:CGRectMake(self.outerRingWidth + self.outerRingSpacing,
-                                                              self.outerRingWidth + self.outerRingSpacing,
+    CGFloat size = self.frame.size.width - self.outerRingWidth*2 - self.outerRingSpacing*2 - self.margin*2;
+    return [UIBezierPath bezierPathWithRoundedRect:CGRectMake(self.outerRingWidth + self.outerRingSpacing + self.margin,
+                                                              self.outerRingWidth + self.outerRingSpacing + self.margin,
                                                               size, size) cornerRadius:size/2.f];
 }
 
 -(UIBezierPath*)innerSquarePath {
-    CGFloat circleSize = self.frame.size.width - self.outerRingWidth*2 - self.outerRingSpacing*2;
+    CGFloat circleSize = self.frame.size.width - self.outerRingWidth*2 - self.outerRingSpacing*2 - self.margin*2;
     CGFloat size = circleSize * sqrt(2) / 2.f;
-    CGFloat margin = (circleSize - size) / 2.f + self.outerRingWidth + self.outerRingSpacing;
+    CGFloat margin = (circleSize - size) / 2.f + self.outerRingWidth + self.outerRingSpacing + self.margin;
     
     return [UIBezierPath bezierPathWithRoundedRect:CGRectMake(margin, margin, size, size) cornerRadius:self.squareCornerRadius];
 }
@@ -67,11 +67,7 @@
 }
 
 -(void)setup {
-    
-    if(self.animationDuration<=0){
-        self.animationDuration = 0.4f;
-    }
-    
+
     if(!self.circleColor){
         self.circleColor = [UIColor redColor];
     }
@@ -83,22 +79,17 @@
     if(!self.outerRingColor){
         self.outerRingColor = [UIColor whiteColor];
     }
-    
-    if(self.outerRingWidth<=0) {
-        self.outerRingWidth = 6.f;
-    }
-    
-    if(self.outerRingSpacing<=0){
-        self.outerRingSpacing = 3.f;
-    }
-    
-    if(self.squareCornerRadius<=0){
-        self.squareCornerRadius = 4.0f;
-    }
-    
+
     if(!self.disabledColor){
         self.disabledColor = [UIColor grayColor];
     }
+    
+    self.outerRingWidth = 6.f;
+    self.outerRingSpacing = 3.f;
+    self.squareCornerRadius = 4.0f;
+    self.animationDuration = 0.4f;
+    self.autoStateChange = YES;
+    self.margin = 5.f;
     
     // setup inner shape
     pathLayer = [[CAShapeLayer alloc]init];
@@ -151,6 +142,16 @@
     animation.removedOnCompletion = NO;
 
     [pathLayer addAnimation:animation forKey:@""];
+    
+    // color
+    CABasicAnimation *colorChange = [CABasicAnimation animationWithKeyPath:@"fillColor"];
+    colorChange.duration = self.animationDuration;
+    colorChange.toValue = (__bridge id _Nullable)([self innerColor].CGColor);
+    colorChange.fillMode = kCAFillModeForwards;
+    colorChange.removedOnCompletion = NO;
+    colorChange.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    [pathLayer addAnimation:colorChange forKey:@"fillColor"];
 }
 
 -(void)setEnabled:(BOOL)enabled {
@@ -162,7 +163,9 @@
 -(void)touchUpInside:(UIButton*)sender {
     
     // Touch ended. Display view as usual
-    self.isRecording = !self.isRecording;
+    if(self.autoStateChange){
+        self.isRecording = !self.isRecording;
+    }
 
     CABasicAnimation *colorChange = [CABasicAnimation animationWithKeyPath:@"fillColor"];
     colorChange.duration = self.animationDuration;
@@ -190,10 +193,10 @@
 
 -(void)drawRect:(CGRect)rect {
     
-    UIBezierPath *outerRing = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.outerRingWidth/2.f,
-                                                                                self.outerRingWidth/2.f,
-                                                                                self.frame.size.width - self.outerRingWidth,
-                                                                                self.frame.size.width - self.outerRingWidth)];
+    UIBezierPath *outerRing = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.outerRingWidth/2.f + self.margin,
+                                                                                self.outerRingWidth/2.f + self.margin,
+                                                                                self.frame.size.width - self.outerRingWidth - self.margin*2,
+                                                                                self.frame.size.width - self.outerRingWidth - self.margin*2)];
     outerRing.lineWidth = self.outerRingWidth;
     [(self.enabled ? self.outerRingColor : self.disabledColor) setStroke];
     [outerRing stroke];

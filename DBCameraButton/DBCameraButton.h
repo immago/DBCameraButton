@@ -23,5 +23,7 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable CGFloat outerRingWidth;
 @property (nonatomic) IBInspectable CGFloat outerRingSpacing;
 @property (nonatomic) IBInspectable CGFloat squareCornerRadius;
+@property (nonatomic) IBInspectable BOOL autoStateChange;
+@property (nonatomic) IBInspectable CGFloat margin;
 
 @end
