@@ -15,6 +15,8 @@ UIColor *squareColor - color of "stop" square
 UIColor *outerRingColor - color of outer ring
 UIColor *disabledColor - color in disabled state
 CGFloat outerRingWidth - width of outer ring
-CGFloat outerRingSpacing - space between outer ring and inner shape 
+CGFloat outerRingSpacing - space between outer ring and inner shape
 CGFloat squareCornerRadius - corner radius of "stop" square
+BOOL autoStateChange - change state when button pressed. Default YES. Set NO to manual state change.
+CGFloat margin - margin to rect bounds.
 ```
