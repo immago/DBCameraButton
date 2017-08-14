@@ -10,6 +10,8 @@
 
 @implementation DBCameraButton
 
+#pragma mark - Init
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -36,34 +38,6 @@
         [self setup];
     }
     return self;
-}
-
--(UIBezierPath*)currentInnerPath {
-    
-    return self.isRecording ? [self innerSquarePath] : [self innerCirclePath];
- 
-}
-
--(UIBezierPath*)innerCirclePath {
-    CGFloat size = self.frame.size.width - self.outerRingWidth*2 - self.outerRingSpacing*2 - self.margin*2;
-    return [UIBezierPath bezierPathWithRoundedRect:CGRectMake(self.outerRingWidth + self.outerRingSpacing + self.margin,
-                                                              self.outerRingWidth + self.outerRingSpacing + self.margin,
-                                                              size, size) cornerRadius:size/2.f];
-}
-
--(UIBezierPath*)innerSquarePath {
-    CGFloat circleSize = self.frame.size.width - self.outerRingWidth*2 - self.outerRingSpacing*2 - self.margin*2;
-    CGFloat size = circleSize * sqrt(2) / 2.f;
-    CGFloat margin = (circleSize - size) / 2.f + self.outerRingWidth + self.outerRingSpacing + self.margin;
-    
-    return [UIBezierPath bezierPathWithRoundedRect:CGRectMake(margin, margin, size, size) cornerRadius:self.squareCornerRadius];
-}
-
--(UIColor*)innerColor {
-    
-    return self.enabled ? (self.isRecording ? self.squareColor
-                                            : self.circleColor)
-                        : self.disabledColor;
 }
 
 -(void)setup {
@@ -154,11 +128,45 @@
     [pathLayer addAnimation:colorChange forKey:@"fillColor"];
 }
 
+#pragma mark - BezierPath
+
+-(UIBezierPath*)currentInnerPath {
+    
+    return self.isRecording ? [self innerSquarePath] : [self innerCirclePath];
+    
+}
+
+-(UIBezierPath*)innerCirclePath {
+    CGFloat size = self.frame.size.width - self.outerRingWidth*2 - self.outerRingSpacing*2 - self.margin*2;
+    return [UIBezierPath bezierPathWithRoundedRect:CGRectMake(self.outerRingWidth + self.outerRingSpacing + self.margin,
+                                                              self.outerRingWidth + self.outerRingSpacing + self.margin,
+                                                              size, size) cornerRadius:size/2.f];
+}
+
+-(UIBezierPath*)innerSquarePath {
+    CGFloat circleSize = self.frame.size.width - self.outerRingWidth*2 - self.outerRingSpacing*2 - self.margin*2;
+    CGFloat size = circleSize * sqrt(2) / 2.f;
+    CGFloat margin = (circleSize - size) / 2.f + self.outerRingWidth + self.outerRingSpacing + self.margin;
+    
+    return [UIBezierPath bezierPathWithRoundedRect:CGRectMake(margin, margin, size, size) cornerRadius:self.squareCornerRadius];
+}
+
+-(UIColor*)innerColor {
+    
+    return self.enabled ? (self.isRecording ? self.squareColor
+                           : self.circleColor)
+    : self.disabledColor;
+}
+
+#pragma mark - Setters
+
 -(void)setEnabled:(BOOL)enabled {
     [super setEnabled:enabled];
     pathLayer.fillColor = [self innerColor].CGColor;
     
 }
+
+#pragma mark - Touches
 
 -(void)touchUpInside:(UIButton*)sender {
     
@@ -190,6 +198,8 @@
     [pathLayer addAnimation:animation forKey:@""];
 }
 
+
+#pragma mark - Draw methods
 
 -(void)drawRect:(CGRect)rect {
     
