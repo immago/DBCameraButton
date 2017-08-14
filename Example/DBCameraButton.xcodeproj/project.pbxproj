@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C54DA3AD1F418073006F0D65 /* DBCameraButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C54DA3AC1F418073006F0D65 /* DBCameraButton.m */; };
 		C5EFF7F01F370BAD003DE8F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EFF7EF1F370BAD003DE8F5 /* main.m */; };
 		C5EFF7F31F370BAD003DE8F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EFF7F21F370BAD003DE8F5 /* AppDelegate.m */; };
 		C5EFF7F61F370BAD003DE8F5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EFF7F51F370BAD003DE8F5 /* ViewController.m */; };
 		C5EFF7F91F370BAE003DE8F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5EFF7F71F370BAE003DE8F5 /* Main.storyboard */; };
 		C5EFF7FB1F370BAE003DE8F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5EFF7FA1F370BAE003DE8F5 /* Assets.xcassets */; };
 		C5EFF7FE1F370BAE003DE8F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5EFF7FC1F370BAE003DE8F5 /* LaunchScreen.storyboard */; };
-		C5EFF8071F370C28003DE8F5 /* DBCameraButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EFF8061F370C28003DE8F5 /* DBCameraButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C54DA3AB1F418073006F0D65 /* DBCameraButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBCameraButton.h; path = ../../Classes/DBCameraButton.h; sourceTree = "<group>"; };
+		C54DA3AC1F418073006F0D65 /* DBCameraButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBCameraButton.m; path = ../../Classes/DBCameraButton.m; sourceTree = "<group>"; };
 		C5EFF7EB1F370BAD003DE8F5 /* DBCameraButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DBCameraButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5EFF7EF1F370BAD003DE8F5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C5EFF7F11F370BAD003DE8F5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -27,8 +29,6 @@
 		C5EFF7FA1F370BAE003DE8F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5EFF7FD1F370BAE003DE8F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5EFF7FF1F370BAE003DE8F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C5EFF8051F370C28003DE8F5 /* DBCameraButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBCameraButton.h; sourceTree = "<group>"; };
-		C5EFF8061F370C28003DE8F5 /* DBCameraButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBCameraButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +61,8 @@
 		C5EFF7ED1F370BAD003DE8F5 /* DBCameraButton */ = {
 			isa = PBXGroup;
 			children = (
+				C54DA3AB1F418073006F0D65 /* DBCameraButton.h */,
+				C54DA3AC1F418073006F0D65 /* DBCameraButton.m */,
 				C5EFF7F11F370BAD003DE8F5 /* AppDelegate.h */,
 				C5EFF7F21F370BAD003DE8F5 /* AppDelegate.m */,
 				C5EFF7F41F370BAD003DE8F5 /* ViewController.h */,
@@ -70,8 +72,6 @@
 				C5EFF7FC1F370BAE003DE8F5 /* LaunchScreen.storyboard */,
 				C5EFF7FF1F370BAE003DE8F5 /* Info.plist */,
 				C5EFF7EE1F370BAD003DE8F5 /* Supporting Files */,
-				C5EFF8051F370C28003DE8F5 /* DBCameraButton.h */,
-				C5EFF8061F370C28003DE8F5 /* DBCameraButton.m */,
 			);
 			path = DBCameraButton;
 			sourceTree = "<group>";
@@ -157,7 +157,7 @@
 			files = (
 				C5EFF7F61F370BAD003DE8F5 /* ViewController.m in Sources */,
 				C5EFF7F31F370BAD003DE8F5 /* AppDelegate.m in Sources */,
-				C5EFF8071F370C28003DE8F5 /* DBCameraButton.m in Sources */,
+				C54DA3AD1F418073006F0D65 /* DBCameraButton.m in Sources */,
 				C5EFF7F01F370BAD003DE8F5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +317,7 @@
 				C5EFF8041F370BAE003DE8F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
